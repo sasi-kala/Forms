@@ -1,0 +1,56 @@
+ <div class="container">
+   
+    <h3 class="title">My Reactive Form -- Register Page</h3>
+    <br>
+    <form [formGroup]="userForm" (submit)="Onsubmit()">
+        <div class="row">
+            <div class="row col-sm-5">
+                <div class="form-group" >
+                    <label for="firstname" >FirstName</label>
+                     <input type="text" id="firstname" class="form-control" formControlName="firstname" autocomplete="off" > 
+
+                     <span class="text-danger" *ngIf="userForm?.controls?.firstname?.errors?.['required'] && submitted" >Username is required</span> 
+                      
+                </div>
+
+                <div class="form-group " >
+                    <label for="lastname" >LastName</label>
+                     <input type="text" id="lastname" class="form-control" formControlName="lastname">  
+                     
+                     <span class="text-danger" *ngIf="userForm?.controls?.lastname?.errors?.['required'] && submitted" >Username is required</span> 
+
+                </div>
+
+                <div class="form-group " >
+                    <label for="email" >Email</label>
+                     <input type="text" id="email" class="form-control" formControlName="email">  
+                     
+                     <span class="text-danger" *ngIf="userForm?.controls?.email?.errors?.['required'] && submitted" >Email is required</span> 
+
+                     <span class="text-danger" *ngIf="userForm?.controls?.email?.errors?.['pattern'] && submitted" >Invalid Email</span> 
+
+                </div>
+
+                <div class="form-group " >
+                    <label for="password" >Password</label>
+                     <input type="password" id="password" class="form-control" formControlName="password"> 
+                     
+                     <span class="text-danger" *ngIf="userForm?.controls?.password?.errors?.['required'] && submitted" >password is required</span>
+                     
+                     <span class="text-danger" *ngIf="userForm?.controls?.password?.errors?.['minlength'] && submitted" >Password should be atleast 3 Characters length</span>
+                     
+                     <span class="text-danger" *ngIf="userForm?.controls?.password?.errors?.['maxlength'] && submitted" >Password should not Exceed 6 Chracters</span>
+                </div>
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary"  >REGISTER</button>
+                <p></p>
+                    <p><a routerLink="/login">Back To Login</a> </p>
+                </div>
+                
+            </div>
+        </div>
+    </form>
+</div> 
+
